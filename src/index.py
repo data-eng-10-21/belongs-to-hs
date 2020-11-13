@@ -23,72 +23,28 @@ def sat_records_schema():
     cursor.fetchall()
 
 def borough_of_school_with_highest_writing_score():
-    cursor.execute("""SELECT schools.boro,
-       MAX(sat.writing_score) FROM sat_records AS sat
-       JOIN high_schools AS schools ON sat.dbn = schools.dbn;""")
-    return cursor.fetchall()
+    pass
 
 def borough_of_school_with_lowest_math_avg():
-    cursor.execute("""SELECT schools.boro,
-       MIN(sat.math_avg) FROM sat_records AS sat
-       JOIN high_schools AS schools ON sat.dbn = schools.dbn; """)
-    return cursor.fetchall()
+    pass
 
 def highest_math_avg_schools_over_one_thousand_students():
-    cursor.execute("""SELECT MAX(sat.math_avg)
-  FROM sat_records AS sat JOIN
-       high_schools AS schools ON sat.dbn = schools.dbn
- WHERE schools.total_students > 1000; """)
-    return cursor.fetchall()
+    pass
 
 def avg_num_test_takers_per_borough():
-    cursor.execute(""" SELECT schools.boro,
-       AVG(sat.num_test_takers) FROM sat_records AS sat
-       JOIN
-       high_schools AS schools ON sat.dbn = schools.dbn
- GROUP BY schools.boro;""")
-    return cursor.fetchall()
+    pass
 
 def avg_grad_rate_of_schools_with_math_avg_over_five_hundred():
-    cursor.execute("""SELECT AVG(schools.graduation_rate)
-  FROM sat_records AS sat JOIN high_schools AS schools 
-  ON sat.dbn = schools.dbn WHERE sat.math_avg > 500; """)
-    return cursor.fetchall()
+    pass
 
 def total_test_takers_per_borough():
-    cursor.execute("""SELECT schools.boro, SUM(sat.num_test_takers)
-  FROM sat_records AS sat JOIN high_schools AS schools ON sat.dbn = schools.dbn
- GROUP BY schools.boro;
- """)
-    return cursor.fetchall()
+    pass
 
 def avg_combined_reading_and_math_per_borough():
-    cursor.execute("""SELECT schools.boro, AVG(sat.math_avg + sat.reading_avg)
-  FROM sat_records AS sat JOIN high_schools AS schools ON sat.dbn = schools.dbn
- GROUP BY schools.boro;""")
-    return cursor.fetchall()
+    pass
 
 def schools_with_largest_diff_btwn_num_test_takers_and_students():
-    cursor.execute("""
-SELECT schools.school_name,
-       (schools.total_students - sat.num_test_takers) AS difference
-  FROM sat_records AS sat
-       JOIN
-       high_schools AS schools ON sat.dbn = schools.dbn
- ORDER BY difference DESC
- LIMIT 5;
- """)
-    return cursor.fetchall()
+    pass
 
 def difference_btwn_total_students_and_test_takers_per_borough():
-    cursor.execute("""
-SELECT schools.boro,
-       SUM(schools.total_students - sat.num_test_takers) AS difference
-  FROM sat_records AS sat
-       JOIN
-       high_schools AS schools ON sat.dbn = schools.dbn
- GROUP BY schools.boro
- ORDER BY difference;
-
- """)
-    return cursor.fetchall()
+    pass
